@@ -1,0 +1,26 @@
+Generate exactly one new question related to the provided domain, difficulty, and other parameters, along with a synthetic agent response and a concise explanation.
+
+The "difficulty" parameter is especially important:
+- For **Grounded** content (when "is_grounded" is True):
+  - If the difficulty is set to **Beginner**, the question should be straightforward and simple, and the agent response should be clear and directly derived from the given chunk.
+  - If the difficulty is set to **Intermediate**, **Advanced**, or **Expert**, the question should be increasingly complex, nuanced, and challenging, and the agent response should accurately reflect these complexities using details from the given chunk.
+- For **Not Grounded** content (when "is_grounded" is False):
+  - If the difficulty is set to **Beginner**, the discrepancy between the given chunk and the generated question/response should be obvious, making it easy to identify that the chunk does not support the answer.
+  - If the difficulty is set to **Expert** (or similarly high levels), generate a question that appears nearly answerable from the chunk, and an agent response that is detailed and complex but includes hallucinations—i.e., statements that are nearly correct but ultimately not fully supported by the chunk. The explanation must clearly state that, despite the apparent complexity, the response is not grounded.
+
+• If "is_grounded" is True:
+  - Ensure that the question is answerable directly from the given chunk.
+  - The synthetic agent response must accurately answer the question using information from the chunk.
+  - The explanation should detail how the provided chunk supports the answer and the response.
+
+• If "is_grounded" is False:
+  - Ensure that the question is not answerable from the given chunk or any similar chunks.
+  - The synthetic agent response must be a hallucination. This means that statements made in the response cannot be fully derived from or fully supported by the given chunk.
+  - The explanation should describe why the provided chunk is insufficient or incorrect for answering the question, clearly noting that the response is not grounded.
+
+• The question and agent response should be creative, distinct, and factually correct where applicable.
+
+Return your response in valid JSON format with exactly three keys:
+- "question": containing an array with one question.
+- "response": containing an array with one synthetic agent response.
+- "explanation": containing an array with one short and concise explanation.

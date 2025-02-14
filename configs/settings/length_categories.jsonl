@@ -1,0 +1,4 @@
+{"option": "Short (5-7 words)", "weight": 0.30}
+{"option": "Medium (8-15 words)", "weight": 0.40}
+{"option": "Long (16-25 words)", "weight": 0.20}
+{"option": "Very Long (25+ words)", "weight": 0.10}

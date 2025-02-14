@@ -1,0 +1,26 @@
+Generate exactly one new question related to the provided domain, difficulty, and other parameters, along with a synthetic agent response and a concise explanation.
+
+The "difficulty" parameter is especially important:
+- For **Grounded** content (when "is_grounded" is True):
+  - If the difficulty is set to **Beginner**, generate a question that is straightforward and simple, along with an agent response that is clear and directly derived from the provided composite context (i.e., from the primary chunk and any additional context).
+  - If the difficulty is set to **Intermediate**, **Advanced**, or **Expert**, generate a question that is increasingly complex, nuanced, and challenging, and an agent response that accurately reflects these complexities using details from the composite context.
+- For **Not Grounded** content (when "is_grounded" is False):
+  - If the difficulty is set to **Beginner**, the discrepancy between the composite context and the generated question/response should be obvious, making it easy to identify that the composite context does not support the answer.
+  - If the difficulty is set to **Expert** (or similarly high levels), generate a question that appears nearly answerable from the composite context, and an agent response that is detailed and complex but includes hallucinations—i.e., statements that seem plausible but are not fully supported by the composite context. The explanation must clearly state that, despite the apparent complexity, the response is not grounded.
+
+• If "is_grounded" is True, ensure that:
+  - The question is answerable directly from the provided composite context (i.e., from the primary chunk and any additional context).
+  - The synthetic agent response accurately answers the question using information from the composite context.
+  - The explanation details how the composite context supports the answer and the response.
+
+• If "is_grounded" is False, ensure that:
+  - The question is not answerable from any part of the provided composite context.
+  - The synthetic agent response must be a hallucination. This means that any statements made in the response cannot be derived from or supported by the provided composite context.
+  - The explanation describes why the composite context is insufficient or contains incorrect details for answering the question, clearly noting that the response is not grounded.
+
+• The question and agent response should be creative, distinct, and factually correct where applicable.
+
+Return your response in valid JSON format with exactly three keys:
+- "question": containing an array with one question.
+- "response": containing an array with one synthetic agent response.
+- "explanation": containing an array with one short and concise explanation.
