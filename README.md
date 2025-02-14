@@ -36,7 +36,6 @@ Work through the notebooks in numerical order to understand and implement differ
   - `index/` - Index files for retrieval
 - `evaluators/` - Evaluation modules
   - `aoai/` - Azure OpenAI evaluators
-  - `prompty/` - Prompt-based evaluators
 - `media/` - Images and media files
 - `utils/` - Utility functions and helper scripts
 
