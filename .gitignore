@@ -1,3 +1,4 @@
 .env
 data/ft-judge/
 data/agent-output/
+evaluators/prompty/
