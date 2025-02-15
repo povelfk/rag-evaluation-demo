@@ -1,4 +1,4 @@
-# AI RAG Evaluation Demo
+# AI RAG Evaluation
 
 This repository contains a collection of Jupyter notebooks for evaluating a **RAG system**, with a focus on synthetic data generation and LLM evaluation.
 
