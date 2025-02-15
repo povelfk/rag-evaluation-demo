@@ -1,0 +1,25 @@
+{
+  "package": {},
+  "code": {
+    "custom_groundedness_old.prompty": {
+      "type": "llm",
+      "inputs": {
+        "query": {
+          "type": [
+            "string"
+          ]
+        },
+        "context": {
+          "type": [
+            "string"
+          ]
+        },
+        "response": {
+          "type": [
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}
